@@ -1,6 +1,6 @@
 # ServiceNow Docs Knowledge Graph
 
-This repo contains a Graphify knowledge graph generated from the ServiceNow docs corpus.
+This repo contains a Graphify knowledge graph generated from the ServiceNow Australia docs corpus.
 
 ## Contents
 
