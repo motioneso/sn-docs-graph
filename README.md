@@ -38,7 +38,7 @@ From this repo:
 Then open:
 
 ```text
-http://127.0.0.1:8765/viewer/
+http://127.0.0.1:9876/viewer/
 ```
 
 The viewer loads `snapshots/latest/graph.json`, indexes node labels/source files/publications, and renders a focused neighborhood around the selected node. It intentionally does not draw all nodes at once.
