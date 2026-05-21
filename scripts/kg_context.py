@@ -56,15 +56,20 @@ def neighborhood(
     depth: int,
     limit: int,
 ) -> tuple[list[dict], list[dict]]:
+    unlimited = limit <= 0
     seen = set(seed_ids)
     queue = [(seed_id, 0) for seed_id in seed_ids]
     link_candidates: list[dict] = []
 
-    while queue and len(seen) < limit:
+    while queue and (unlimited or len(seen) < limit):
         current, current_depth = queue.pop(0)
         for neighbor, link in adjacency.get(current, []):
             link_candidates.append(link)
-            if neighbor not in seen and current_depth < depth and len(seen) < limit:
+            if (
+                neighbor not in seen
+                and current_depth < depth
+                and (unlimited or len(seen) < limit)
+            ):
                 seen.add(neighbor)
                 queue.append((neighbor, current_depth + 1))
 
@@ -83,7 +88,7 @@ def neighborhood(
             continue
         seen_links.add(key)
         links.append(link)
-        if len(links) >= limit * 3:
+        if not unlimited and len(links) >= limit * 3:
             break
     return nodes, links
 
@@ -130,7 +135,12 @@ def main() -> None:
     parser.add_argument("query", help="Search terms, e.g. 'CMDB service graph'")
     parser.add_argument("--matches", type=int, default=8, help="Number of seed matches")
     parser.add_argument("--depth", type=int, default=1, choices=(1, 2), help="Neighborhood depth")
-    parser.add_argument("--limit", type=int, default=120, help="Maximum neighborhood nodes")
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=120,
+        help="Maximum neighborhood nodes; use 0 for no cap",
+    )
     parser.add_argument("--format", choices=("json", "markdown"), default="markdown")
     args = parser.parse_args()
 

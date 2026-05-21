@@ -56,6 +56,9 @@ Use `scripts/kg_context.py` to extract focused context:
 ./scripts/kg_context.py "workflow automation" --format json > /tmp/kg-context.json
 ```
 
+`--limit` defaults to `120` neighborhood nodes to keep prompts manageable. Use
+`--limit 0` when you explicitly want the full one- or two-hop neighborhood.
+
 Then give the output to your LLM with a prompt like:
 
 ```text
