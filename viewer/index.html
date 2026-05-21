@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ServiceNow Docs Knowledge Graph</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <aside class="sidebar">
+        <header>
+          <h1>ServiceNow Docs Graph</h1>
+          <p id="status">Loading graph...</p>
+        </header>
+
+        <section class="controls">
+          <label for="search">Search nodes</label>
+          <input id="search" type="search" placeholder="CMDB, workflow, API..." autocomplete="off">
+          <div class="row">
+            <label for="depth">Depth</label>
+            <select id="depth">
+              <option value="1">1 hop</option>
+              <option value="2">2 hops</option>
+            </select>
+            <label for="limit">Limit</label>
+            <select id="limit">
+              <option value="150">150</option>
+              <option value="300" selected>300</option>
+              <option value="600">600</option>
+            </select>
+          </div>
+        </section>
+
+        <section>
+          <h2>Results</h2>
+          <div id="results" class="results"></div>
+        </section>
+
+        <section>
+          <h2>Selected</h2>
+          <div id="details" class="details">Choose a result to inspect its neighborhood.</div>
+        </section>
+
+        <nav class="links">
+          <a href="../snapshots/latest/GRAPH_REPORT.md" target="_blank" rel="noreferrer">Open report</a>
+          <a href="../snapshots/latest/graph.json" target="_blank" rel="noreferrer">Open graph JSON</a>
+        </nav>
+      </aside>
+
+      <section class="canvas-wrap">
+        <canvas id="graph"></canvas>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

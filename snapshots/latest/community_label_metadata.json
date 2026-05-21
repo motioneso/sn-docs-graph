@@ -1,0 +1,7 @@
+{
+  "mode": "llm",
+  "node_threshold": 1000,
+  "communities": 1522,
+  "labeled_by_llm": 1522,
+  "fallback_labels": 0
+}

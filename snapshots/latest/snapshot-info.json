@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-05-21T18:34:46.254111+00:00",
+  "nodes": 50059,
+  "links": 95705,
+  "communities": 1522,
+  "community_label_metadata": {
+    "mode": "llm",
+    "node_threshold": 1000,
+    "communities": 1522,
+    "labeled_by_llm": 1522,
+    "fallback_labels": 0
+  }
+}
